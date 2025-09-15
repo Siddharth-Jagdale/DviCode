@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#3b82f6" />
+  
+  <!-- Primary Meta Tags -->
+  <title>DviCode</title>
+  <meta name="title" content="DviCode | NAMASTE-ICD11 ML Integration System | AI-Powered Healthcare Terminology Mapping" />
+  <meta name="description" content="Revolutionary AI-powered integration system connecting NAMASTE traditional medicine codes with ICD-11 standards. Features dual coding, FHIR R4 compliance, and real-time semantic search for healthcare interoperability." />
+  <meta name="keywords" content="NAMASTE, ICD-11, healthcare, AI, machine learning, traditional medicine, FHIR, medical coding, terminology mapping, AYUSH, biomedicine" />
+  <meta name="author" content="NAMASTE-ICD11 Team" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://namaste-icd11.healthcare/" />
+  <meta property="og:title" content="NAMASTE-ICD11 ML Integration System" />
+  <meta property="og:description" content="Bridge traditional and modern medicine with AI-powered terminology mapping. Seamless dual coding for healthcare interoperability." />
+  <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://namaste-icd11.healthcare/" />
+  <meta property="twitter:title" content="NAMASTE-ICD11 ML Integration System" />
+  <meta property="twitter:description" content="Revolutionary AI-powered integration system for healthcare terminology mapping with FHIR R4 compliance." />
+  <meta property="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+  
+  <!-- Preconnect to external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Google Fonts - Inter & Fira Code -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Progressive Web App -->
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  
+  <!-- Additional Meta Tags for Healthcare/Medical -->
+  <meta name="application-name" content="NAMASTE-ICD11" />
+  <meta name="msapplication-TileColor" content="#3b82f6" />
+  <meta name="msapplication-config" content="%PUBLIC_URL%/browserconfig.xml" />
+  
+  <!-- Structured Data for Healthcare Application -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "NAMASTE-ICD11 ML Integration System",
+    "description": "AI-powered integration system connecting traditional medicine codes with ICD-11 standards",
+    "url": "https://namaste-icd11.healthcare/",
+    "author": {
+      "@type": "Organization",
+      "name": "NAMASTE-ICD11 Team"
+    },
+    "applicationCategory": "HealthcareApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "AI-Powered Mapping",
+      "Smart Search",
+      "Dual Coding",
+      "FHIR R4 Compliance",
+      "Real-time Analytics",
+      "Traditional Medicine Integration"
+    ]
+  }
+  </script>
+
+  <!-- Loading Styles -->
+  <style>
+    /* Loading Screen Styles */
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    }
+
+    #loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loading-logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .loading-logo svg {
+      width: 40px;
+      height: 40px;
+      color: white;
+    }
+
+    .loading-title {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .loading-subtitle {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Prevent flash of unstyled content */
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      padding: 0;
+      background: #f8fafc;
+    }
+
+    /* Dark mode detection */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #0f172a;
+        color: #f8fafc;
+      }
+    }
+
+    /* Hide root initially to prevent FOUC */
+    #root {
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+    }
+
+    #root.loaded {
+      opacity: 1;
+    }
+
+    /* Error boundary styles */
+    .error-boundary {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .error-boundary h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .error-boundary p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .error-boundary button {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .error-boundary button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; font-family: 'Inter', sans-serif;">
+      <h1 style="font-size: 2rem; margin-bottom: 1rem;">JavaScript Required</h1>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; max-width: 500px;">
+        NAMASTE-ICD11 ML Integration System requires JavaScript to function properly. 
+        Please enable JavaScript in your browser and refresh the page to continue.
+      </p>
+      <p style="font-size: 0.9rem; opacity: 0.7;">
+        This application provides AI-powered healthcare terminology mapping and requires 
+        modern browser capabilities for optimal performance.
+      </p>
+    </div>
+  </noscript>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-logo">
+      <!-- Medical/Healthcare Icon SVG -->
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+      </svg>
+    </div>
+    <div class="loading-title">NAMASTE-ICD11</div>
+    <div class="loading-subtitle">AI-Powered Healthcare Terminology Mapping</div>
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Main Application Root -->
+  <div id="root"></div>
+
+  <!-- Fallback for browsers that don't support modern features -->
+  <script>
+    // Check for essential browser features
+    if (!window.fetch || !window.Promise || !Array.from) {
+      document.getElementById('root').innerHTML = `
+        <div class="error-boundary">
+          <h1>Unsupported Browser</h1>
+          <p>Your browser doesn't support the features required for this application.</p>
+          <p>Please update to a modern browser like Chrome, Firefox, Safari, or Edge.</p>
+          <button onclick="location.reload()">Try Again</button>
+        </div>
+      `;
+    }
+
+    // Loading screen management
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        const root = document.getElementById('root');
+        
+        if (loadingScreen) {
+          loadingScreen.classList.add('hidden');
+          setTimeout(() => {
+            loadingScreen.remove();
+          }, 500);
+        }
+        
+        if (root) {
+          root.classList.add('loaded');
+        }
+      }, 1000); // Minimum loading time for better UX
+    });
+
+    // Global error handler
+    window.addEventListener('error', function(event) {
+      console.error('Global error:', event.error);
+      // Could implement error reporting here
+    });
+
+    // Unhandled promise rejection handler
+    window.addEventListener('unhandledrejection', function(event) {
+      console.error('Unhandled promise rejection:', event.reason);
+    });
+  </script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    // Register service worker for PWA functionality
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('%PUBLIC_URL%/sw.js')
+          .then(function(registration) {
+            console.log('SW registered: ', registration);
+          })
+          .catch(function(registrationError) {
+            console.log('SW registration failed: ', registrationError);
+          });
+      });
+    }
+  </script>
+</body>
+</html>

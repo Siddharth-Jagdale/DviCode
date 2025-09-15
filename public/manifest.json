@@ -1,0 +1,150 @@
+{
+  "short_name": "NAMASTE-ICD11",
+  "name": "NAMASTE-ICD11 ML Integration System",
+  "description": "AI-powered integration system connecting NAMASTE traditional medicine codes with ICD-11 standards for healthcare interoperability",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "any"
+    },
+    {
+      "src": "android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#3b82f6",
+  "background_color": "#f8fafc",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": [
+    "healthcare",
+    "medical",
+    "productivity",
+    "utilities"
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "NAMASTE-ICD11 Dashboard - Wide View"
+    },
+    {
+      "src": "screenshot-narrow.png",
+      "sizes": "640x1136",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "NAMASTE-ICD11 Mobile Interface"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Smart Search",
+      "short_name": "Search",
+      "description": "Search medical terminology across multiple systems",
+      "url": "/search",
+      "icons": [
+        {
+          "src": "shortcut-search.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "AI Mapping",
+      "short_name": "Mapping",
+      "description": "Generate AI-powered code mappings",
+      "url": "/mapping",
+      "icons": [
+        {
+          "src": "shortcut-mapping.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "FHIR Playground",
+      "short_name": "FHIR",
+      "description": "Explore FHIR R4 bundle generation",
+      "url": "/fhir",
+      "icons": [
+        {
+          "src": "shortcut-fhir.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "short_name": "Analytics",
+      "description": "View system analytics and statistics",
+      "url": "/analytics",
+      "icons": [
+        {
+          "src": "shortcut-analytics.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+namasteicd11",
+      "url": "/mapping?code=%s"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/fhir",
+      "accept": {
+        "application/fhir+json": [".json"],
+        "application/json": [".json"]
+      }
+    }
+  ]
+}
