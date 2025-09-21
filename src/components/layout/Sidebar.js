@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import {
   HomeIcon,
   BeakerIcon,
@@ -12,20 +13,24 @@ import {
   XMarkIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  ClipboardDocumentListIcon, // New icon for Access Log
 } from '@heroicons/react/24/outline';
 
 const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
   const location = useLocation();
 
+
   const menuItems = [
-    { path: '/', icon: HomeIcon, label: 'Home' },
-    { path: '/demo', icon: BeakerIcon, label: 'Demo' },
-    { path: '/search', icon: MagnifyingGlassIcon, label: 'Search' },
-    { path: '/mapping', icon: ArrowPathRoundedSquareIcon, label: 'Mapping' },
-    { path: '/fhir', icon: CodeBracketIcon, label: 'FHIR' },
-    { path: '/analytics', icon: ChartBarIcon, label: 'Analytics' },
-    { path: '/settings', icon: CogIcon, label: 'Settings' },
-  ];
+  { path: '/', icon: HomeIcon, label: 'Home' },
+  { path: '/demo', icon: BeakerIcon, label: 'Demo' },
+  { path: '/search', icon: MagnifyingGlassIcon, label: 'Search' },
+  { path: '/mapping', icon: ArrowPathRoundedSquareIcon, label: 'Mapping' },
+  { path: '/fhir', icon: CodeBracketIcon, label: 'FHIR' },
+  { path: '/analytics', icon: ChartBarIcon, label: 'Analytics' },
+  { path: '/access-log', icon: ClipboardDocumentListIcon, label: 'Access Log' }, // <-- NEW
+  { path: '/settings', icon: CogIcon, label: 'Settings' },
+];
+// menuItems drives the sidebar links. Add new pages here with path, icon and label.
 
   return (
     <>

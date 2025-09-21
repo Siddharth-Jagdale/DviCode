@@ -58,6 +58,8 @@ const Settings = React.lazy(() => import('./pages/Settings'));
 const Login = React.lazy(() => import('./pages/Login'));
 const Register = React.lazy(() => import('./pages/Register'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
+const AccessLog = React.lazy(() => import('./pages/AccessLog'));
+
 
 
 
@@ -178,6 +180,7 @@ function App() {
                           <Route path="/settings" element={<Settings />} />
                           <Route path="/login" element={<Login />} />
                           <Route path="/register" element={<Register />} />
+                          <Route path="/access-log" element={<AccessLog />} />
                           <Route path="*" element={<NotFound />} />
                         </Routes>
                       </Suspense>

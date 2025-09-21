@@ -50,8 +50,10 @@ const Navbar = ({ onToggleSidebar, isSidebarOpen }) => {
               <NavLink to="/mapping">Mapping</NavLink>
               <NavLink to="/fhir">FHIR</NavLink>
               {isAuthenticated && <NavLink to="/analytics">Analytics</NavLink>}
+              {isAuthenticated && <NavLink to="/access-log">Access Log</NavLink>}   
             </div>
-
+           
+           
             {/* Auth buttons for non-authenticated users - mobile friendly */}
             {!isAuthenticated && (
               <div className="flex items-center space-x-2">
